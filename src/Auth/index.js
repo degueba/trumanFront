@@ -23,7 +23,7 @@ class Auth extends Component {
     register = async () => {
         let { emailCreate, nameCreate, lastNameCreate, passwordCreate } = this.state;
     
-        let response = await axios.post('http://localhost:3333/users', {
+        let response = await axios.post('https://trumanappbackend.herokuapp.com/users', {
             "name": nameCreate,
             "email": emailCreate,
             "password": passwordCreate
@@ -43,7 +43,7 @@ class Auth extends Component {
     login = async () => {
         let { emailLogin, passwordLogin } = this.state;
     
-        let response = await axios.post('http://localhost:3333/users/login', {
+        let response = await axios.post('https://trumanappbackend.herokuapp.com/users/login', {
             "email": emailLogin,
             "password": passwordLogin
         }).catch(() => {

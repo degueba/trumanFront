@@ -26,7 +26,7 @@ class Survey extends Component {
     }
 
     emailAbandoned = async () => {
-        let response = await axios.post('http://localhost:3333/email/abandoned');
+        let response = await axios.post('https://trumanappbackend.herokuapp.com/email/abandoned');
 
         if(response.status != 204){
             return console.error('Error to send email abandoned.')
@@ -71,7 +71,7 @@ class Survey extends Component {
         let id_user = JSON.parse(localStorage.getItem('user')).id
 
 
-        let response = await axios.post('http://localhost:3333/surveys', {
+        let response = await axios.post('https://trumanappbackend.herokuapp.com/surveys', {
             question_1,
             question_2,
             question_3,
