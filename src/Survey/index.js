@@ -41,10 +41,8 @@ class Survey extends Component {
         
         let intervalCount = setInterval(() => {
             seconds--;
-            
-            console.log(parseInt(seconds/60));
-            
-            if(parseInt(seconds/60)== 0){
+
+            if(seconds == 0){
                 this.emailAbandoned()
                 return clearInterval(intervalCount)
             }
@@ -87,7 +85,8 @@ class Survey extends Component {
             return
         }
 
-        this.setState({result: response.data.result})
+    
+        this.setState({result: response.data.result.avenger})
     }
 
 
@@ -135,7 +134,7 @@ class Survey extends Component {
                     <button type="submit">
                         Send
                     </button>
-                    <div>{this.state.result}</div>
+                    <div style={{marginTop: '20px'}}>{this.state.result}!</div>
                 </form> 
             </div>
         )
