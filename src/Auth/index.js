@@ -31,14 +31,13 @@ class Auth extends Component {
         );
     
         if(response.status != 200){
-          console.log('Erro ao criar usuário');
+          console.log('Error when creating user');
     
           return
         }
     
-        console.log(response);
-        console.log('Usuário criado com sucesso!');
-      }
+        this.setState({msg: response.data.msg});
+    }
     
     login = async () => {
         let { emailLogin, passwordLogin } = this.state;
