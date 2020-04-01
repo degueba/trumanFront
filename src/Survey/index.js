@@ -26,7 +26,8 @@ class Survey extends Component {
     }
 
     emailAbandoned = async () => {
-        let response = await axios.post('https://trumanappbackend.herokuapp.com/email/abandoned');
+        let email = JSON.parse(localStorage.getItem('user')).email;
+        let response = await axios.post('https://trumanappbackend.herokuapp.com/email/abandoned', {"email" : email});
 
         if(response.status != 204){
             return console.error('Error to send email abandoned.')
@@ -69,6 +70,7 @@ class Survey extends Component {
         let question_4 = event.target[3].value
         let question_5 = event.target[4].value
         let id_user = JSON.parse(localStorage.getItem('user')).id
+        let email = JSON.parse(localStorage.getItem('user')).email
 
 
         let response = await axios.post('https://trumanappbackend.herokuapp.com/surveys', {
@@ -77,7 +79,8 @@ class Survey extends Component {
             question_3,
             question_4,
             question_5,
-            id_user
+            id_user,
+            email
         });
 
         if(response.status != 200){
