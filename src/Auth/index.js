@@ -46,10 +46,12 @@ class Auth extends Component {
         let response = await axios.post('http://localhost:3333/users/login', {
             "email": emailLogin,
             "password": passwordLogin
+        }).catch(() => {
+            this.setState({msg: 'User or password invalid'})
         });
     
-        if(response.status != 200){
-          this.setState({msg: 'Usuário ou senha inválido'})
+        if(!response || response.status != 200){
+          this.setState({msg: 'User or password invalid'})
           return
         }
 
@@ -88,6 +90,7 @@ class Auth extends Component {
                 }}/>
                 <br/><br/>
                 <button style={{width: '100%', height: '35px'}} onClick={this.login}>Login</button>
+                <br/><br/>
                 <div>{this.state.msg}</div>
               </div>
             </div>
