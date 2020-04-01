@@ -1,0 +1,10 @@
+.survey {
+    &__form {
+        transition: all 0.5s ease-in-out;
+        margin-top: 20px;
+
+        &.hidden {
+            opacity: 0;
+        }
+    }
+}
