@@ -15,7 +15,8 @@ class Auth extends Component {
             nameCreate: '',
             lastNameCreate: '',
             passwordCreate: '',
-            msg: ''
+            msg: '',
+            msgRegister: ''
         }
 
     }
@@ -36,7 +37,7 @@ class Auth extends Component {
           return
         }
     
-        this.setState({msg: response.data.msg});
+        this.setState({msgRegister: response.data.msg});
     }
     
     login = async () => {
@@ -76,6 +77,8 @@ class Auth extends Component {
                 onChange={(e) => this.setState({passwordCreate: e.currentTarget.value})}/>
               <br/><br/>
               <button style={{width: '100%', height: '35px'}} onClick={this.register}>Register</button>
+              <br/><br/>
+              <div>{this.state.msgRegister}</div>
             </div>
 
             <div>
