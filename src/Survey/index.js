@@ -58,10 +58,10 @@ class Survey extends Component {
 
         /*
             question_1, // Do you like technology ?  
-            question_2, // Do you consider yourself garrulous ?
-            question_3, // Are you shy ?
+            question_2, // Do you consider yourself outgoing ? 
+            question_3, // Are you introverted ?
             question_4, // Do you like sports ?
-            question_5, // Do you like being a joker ?
+            question_5, // Do you consider yourself a comedian ? 
         */
 
         let question_1 = event.target[0].value
@@ -88,8 +88,7 @@ class Survey extends Component {
             return
         }
 
-        clearInterval(this.intervalCount)
-        this.setState({result: response.data.result.avenger})
+        this.setState({result: response.data.result.avenger}, () => clearInterval(this.intervalCount))
     }
 
 
@@ -110,13 +109,13 @@ class Survey extends Component {
                         <option value="no">no</option>
                     </select>
                     <br />
-                    <label> Do you consider yourself garrulous ?</label><br/>
+                    <label> Do you consider yourself outgoing ?</label><br/>
                     <select name="question_2">
                         <option value="yes">yes</option>
                         <option value="no">no</option>
                     </select>
                     <br />
-                    <label>Are you shy ?</label><br/>
+                    <label>Are you introverted ?</label><br/>
                     <select name="question_3">
                         <option value="yes">yes</option>
                         <option value="no">no</option>
@@ -128,7 +127,7 @@ class Survey extends Component {
                         <option value="no">no</option>
                     </select>
                     <br />
-                    <label>Do you like being a joker ?</label><br/>
+                    <label>Do you consider yourself a comedian ?</label><br/>
                     <select name="question_5">
                         <option value="yes">yes</option>
                         <option value="no">no</option>
